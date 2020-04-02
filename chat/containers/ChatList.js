@@ -16,7 +16,7 @@ export const ChatList = ({ chats }) => {
     <View style={styles.wrapper}>
       <FlatList
         data={chats}
-        keyExtractor={post => post.id}
+        keyExtractor={chat => chat.id.toString()}
         renderItem={({ chat }) => {
           return <Chat chat={chat}/>
         }}/>
