@@ -1,34 +1,54 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 
 export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) => {
   return (
     <View style={styles.chatItem}>
-      <Text style={styles.textWrap}>{name}</Text>
-      <Text>{lastMessage}</Text>
+      <View style={styles.imageWrap}>
+        <ImageBackground style={styles.avatar} source={{ uri: avatar }}/>
+      </View>
+      <View style={styles.details}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.lastMessage}>{lastMessage}</Text>
+      </View>
     </View>
   )
 };
 
 const styles = StyleSheet.create({
   chatItem: {
-    marginBottom: 15,
+    height: 70,
     overflow: 'hidden',
-    backgroundColor: '#eee',
-  },
-  image: {
-    width: '100%',
-    height: 200
-  },
-  textWrap: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    paddingVertical: 5,
+    backgroundColor: '#fafafa',
+    flexDirection: 'row',
     alignItems: 'center',
-    width: '100%',
+    borderBottomColor: '#323232',
   },
-  title: {
-    color: '#fff',
-    fontFamily: 'open-regular'
+
+  imageWrap: {
+    width: '25%'
+  },
+
+  avatar: {
+    marginLeft: 5,
+    resizeMode: 'contain',
+    width: 65,
+    height: 65,
+    borderRadius: 70 / 2,
+    overflow: "hidden",
+  },
+
+  details: {
+    width: "75%",
+    height: '100%',
+    borderBottomColor: '#323232',
+    borderBottomWidth: 1,
+  },
+
+  name: {
+    marginTop: 6,
+    fontSize: 18,
+    marginBottom: 5,
   }
 });

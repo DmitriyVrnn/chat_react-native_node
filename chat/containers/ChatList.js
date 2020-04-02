@@ -26,7 +26,7 @@ export const ChatList = ({ chats }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    padding: 10,
+    paddingTop: 5,
     flexDirection:'row'
   },
 });
