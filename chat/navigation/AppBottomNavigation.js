@@ -19,6 +19,7 @@ export const AppBottomNavigation = () => {
       <BottomNavigator.Screen
         name="Chat"
         component={StackChatNavigator}
+        tintColor='#F5FCFF'
         options={{
           tabBarIcon: (info) => <Ionicons name='ios-chatboxes' size={25} color={info.color}/>,
           tabBarLabel: 'Chat'
