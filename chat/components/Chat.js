@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 
 export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) => {
+  const formatTimeLastMessage = new Date(timeLastMessage).toLocaleTimeString('en-GB', {
+    hour: "numeric",
+    minute: "numeric"
+  });
   return (
     <View style={styles.chatItem}>
       <View style={styles.imageWrap}>
@@ -11,6 +15,9 @@ export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) =
       <View style={styles.details}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.lastMessage}>{lastMessage}</Text>
+      </View>
+      <View>
+        <Text>{formatTimeLastMessage}</Text>
       </View>
     </View>
   )
@@ -40,7 +47,7 @@ const styles = StyleSheet.create({
   },
 
   details: {
-    width: "75%",
+    width: "60%",
     height: '100%',
     borderBottomColor: '#323232',
     borderBottomWidth: 1,
