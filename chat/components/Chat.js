@@ -2,10 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 
-export const Chat = () => {
+export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) => {
   return (
     <View style={styles.chatItem}>
-      <Text>Chat Item</Text>
+      <Text style={styles.textWrap}>{name}</Text>
+      <Text>{lastMessage}</Text>
     </View>
   )
 };
@@ -13,7 +14,8 @@ export const Chat = () => {
 const styles = StyleSheet.create({
   chatItem: {
     marginBottom: 15,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    backgroundColor: '#eee',
   },
   image: {
     width: '100%',

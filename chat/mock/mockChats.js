@@ -1,21 +1,33 @@
 export const mockChats = [
   {
     id: 1,
-    text: 'test1'
+    avatar: '',
+    name: 'Andrew',
+    lastMessage: 'Hello world',
+    timeLastMessage: Date.now(),
   },{
     id: 2,
-    text: 'test2'
+    avatar: '',
+    name: 'John',
+    lastMessage: 'Hello world',
+    timeLastMessage: Date.now(),
   },{
-    id: 3,
-    text: 'test3'
+    id: 1,
+    avatar: '',
+    name: 'Michel',
+    lastMessage: 'Hello world',
+    timeLastMessage: Date.now(),
   },{
-    id: 4,
-    text: 'test4'
+    id: 1,
+    avatar: '',
+    name: 'Elizabet',
+    lastMessage: 'Hello world',
+    timeLastMessage: Date.now(),
   },{
-    id: 5,
-    text: 'test5'
-  },{
-    id: 6,
-    text: 'test6'
+    id: 1,
+    avatar: '',
+    name: 'Masha',
+    lastMessage: 'Hello world',
+    timeLastMessage: Date.now(),
   },
 ];

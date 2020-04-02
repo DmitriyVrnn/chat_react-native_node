@@ -17,8 +17,8 @@ export const ChatList = ({ chats }) => {
       <FlatList
         data={chats}
         keyExtractor={chat => chat.id.toString()}
-        renderItem={({ chat }) => {
-          return <Chat chat={chat}/>
+        renderItem={({ item }) => {
+          return <Chat item={item}/>
         }}/>
     </View>
   )
@@ -26,6 +26,7 @@ export const ChatList = ({ chats }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    padding: 10
+    padding: 10,
+    flexDirection:'row'
   },
 });
