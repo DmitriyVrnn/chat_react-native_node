@@ -8,7 +8,17 @@ import { mockChats } from "../mock/mockChats";
 export const ChatScreen = ({ chats }) => {
   return (
     <ScrollView>
-      <ChatList chats={mockChats}/>
+      <View style={styles.wrapper}>
+        <ChatList chats={mockChats}/>
+      </View>
     </ScrollView>
   )
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+});

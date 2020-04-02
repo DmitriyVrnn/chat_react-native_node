@@ -16,7 +16,7 @@ export const AppBottomNavigation = () => {
       }}
     >
       <BottomNavigator.Screen
-        name="Post"
+        name="Chat"
         component={ChatScreen}
         options={{
           tabBarIcon: (info) => <Ionicons name='ios-chatboxes' size={25} color={info.color}/>,
@@ -24,7 +24,7 @@ export const AppBottomNavigation = () => {
         }}
       />
       <BottomNavigator.Screen
-        name="Booked"
+        name="Settings"
         component={SettingsScreen}
         options={{
           tabBarIcon: (info) => <Ionicons name='ios-settings' size={25} color={info.color}/>,
