@@ -51,12 +51,15 @@ export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) =
       marginTop: 6,
       fontSize: 18,
       marginBottom: 5,
+      fontFamily: 'roboto-bold',
     },
     lastMessage: {
-      color: colors.text
+      color: '#757575',
+      fontFamily: 'roboto-bold',
     },
     time: {
-      color: colors.text
+      color: colors.text,
+      fontFamily: 'roboto-bold',
     },
   });
 
