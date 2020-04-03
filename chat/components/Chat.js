@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ImageBackground, PixelRatio } from 'react-nativ
 import { useTheme } from '@react-navigation/native';
 
 
-
 export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) => {
   const { colors } = useTheme();
 
@@ -36,7 +35,7 @@ export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) =
       height: '100%',
     },
     wrapInfo: {
-      width: "80%",
+      flex: 1,
       height: '100%',
       borderBottomColor: '#323232',
       borderBottomWidth: 1,
