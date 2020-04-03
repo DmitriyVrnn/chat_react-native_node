@@ -1,15 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, PixelRatio, TouchableOpacity } from 'react-native';
+import {
+  View, Text, StyleSheet, PixelRatio, TouchableOpacity
+} from 'react-native';
 import { useTheme } from '@react-navigation/native';
+import { AvatarApp } from './UI/Avatar';
 
 
 export const Chat = ({ item, openChat }) => {
-  const { lastMessage, avatar, name, timeLastMessage } = item;
+  const {
+    lastMessage, avatar, name, timeLastMessage
+  } = item;
   const { colors } = useTheme();
 
   const formatTimeLastMessage = new Date(timeLastMessage).toLocaleTimeString('en-GB', {
-    hour: "numeric",
-    minute: "numeric"
+    hour: 'numeric',
+    minute: 'numeric'
   });
 
   const styles = StyleSheet.create({
@@ -22,18 +27,13 @@ export const Chat = ({ item, openChat }) => {
       width: '100%'
     },
     imageWrap: {
-      justifyContent: "center",
+      justifyContent: 'center',
       width: 60,
       height: 60,
       borderRadius: PixelRatio.getPixelSizeForLayoutSize(60),
-      overflow: "hidden",
+      overflow: 'hidden',
       marginLeft: 5,
       marginRight: 10,
-    },
-    avatar: {
-      resizeMode: 'contain',
-      width: 'auto',
-      height: '100%',
     },
     wrapInfo: {
       flex: 1,
@@ -68,7 +68,7 @@ export const Chat = ({ item, openChat }) => {
     <TouchableOpacity activeOpacity={0.7} onPress={() => openChat(item)}>
       <View style={styles.chatItem}>
         <View style={styles.imageWrap}>
-          <ImageBackground style={styles.avatar} source={{ uri: avatar }}/>
+          <AvatarApp uri={avatar} />
         </View>
         <View style={styles.wrapInfo}>
           <View style={styles.details}>
@@ -81,5 +81,5 @@ export const Chat = ({ item, openChat }) => {
         </View>
       </View>
     </TouchableOpacity>
-  )
+  );
 };

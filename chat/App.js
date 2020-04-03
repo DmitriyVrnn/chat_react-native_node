@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
+import { AppLoading } from 'expo';
 import store from './store';
-import { bootstrap } from "./bootstrap";
+import { bootstrap } from './bootstrap';
 
-import { AppNavigation } from "./navigation/AppNavigation";
-import { AppLoading } from "expo";
+import { AppNavigation } from './navigation/AppNavigation';
 
 
 export default function App() {
@@ -15,14 +15,14 @@ export default function App() {
       <AppLoading
         startAsync={bootstrap}
         onFinish={() => setIsReady(true)}
-        onError={err => console.log(err)}
+        onError={(err) => console.log(err)}
       />
-    )
+    );
   }
 
   return (
     <Provider store={store}>
-      <AppNavigation/>
+      <AppNavigation />
     </Provider>
   );
 }

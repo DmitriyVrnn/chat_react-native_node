@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import {
+  StyleSheet, View, ScrollView
+} from 'react-native';
 
-import { ChatList } from "../components/ChatList";
-import { mockChats } from "../mock/mockChats";
+import { ChatList } from '../components/ChatList';
+import { mockChats } from '../mock/mockChats';
 
 
 export const ChatScreen = ({ chats, navigation }) => {
@@ -10,16 +12,17 @@ export const ChatScreen = ({ chats, navigation }) => {
     navigation.push('PrivateChat', {
       chatId: chat.id,
       name: chat.name,
-    })
+      avatar: chat.avatar,
+    });
   };
 
   return (
     <ScrollView>
       <View style={styles.center}>
-        <ChatList chats={mockChats} openChat={openChatHandler}/>
+        <ChatList chats={mockChats} openChat={openChatHandler} />
       </View>
     </ScrollView>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
