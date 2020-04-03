@@ -1,18 +1,11 @@
 import React from 'react';
-import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { AppBottomNavigation } from "./AppBottomNavigation";
+import { darkCustomTheme } from "../theme";
 
 export const AppNavigation = () => {
-  const MyTheme = {
-    ...DarkTheme,
-    colors: {
-      ...DarkTheme.colors,
-      primary: '#ffd600',
-      text: '#fff',
-    },
-  };
   return (
-    <NavigationContainer theme={MyTheme}>
+    <NavigationContainer theme={darkCustomTheme}>
       <AppBottomNavigation/>
     </NavigationContainer>
   )
