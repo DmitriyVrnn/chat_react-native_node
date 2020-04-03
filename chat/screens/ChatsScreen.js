@@ -14,6 +14,7 @@ export const ChatScreen = ({ chats, navigation }) => {
       name: chat.name,
       avatar: chat.avatar,
     });
+    navigation.setOptions({ tabBarVisible: false });
   };
 
   return (
