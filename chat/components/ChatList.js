@@ -28,6 +28,7 @@ export const ChatList = ({ chats, openChat }) => {
 const styles = StyleSheet.create({
   wrapper: {
     paddingTop: 5,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    height: '100%'
   },
 });

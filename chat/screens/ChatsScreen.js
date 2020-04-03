@@ -18,11 +18,7 @@ export const ChatScreen = ({ chats, navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.center}>
-        <ChatList chats={mockChats} openChat={openChatHandler} />
-      </View>
-    </ScrollView>
+    <ChatList chats={mockChats} openChat={openChatHandler} />
   );
 };
 
