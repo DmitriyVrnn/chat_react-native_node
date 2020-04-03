@@ -1,15 +1,14 @@
 import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ChatScreen } from "../screens/ChatsScreen";
 import { Ionicons } from "@expo/vector-icons";
 import { SettingsScreen } from "../screens/SettingsScreen";
-import { StackChatNavigator } from "./stacks/StackNavigation";
+import { StackChatsNavigator } from "./stacks/StackChatsNavigation";
 
 
 const BottomNavigator = createBottomTabNavigator();
 
 export const AppBottomNavigation = () => {
-  return(
+  return (
     <BottomNavigator.Navigator
       tabBarOptions={{
         inactiveTintColor: 'gray',
@@ -18,7 +17,7 @@ export const AppBottomNavigation = () => {
     >
       <BottomNavigator.Screen
         name="Chat"
-        component={StackChatNavigator}
+        component={StackChatsNavigator}
         tintColor='#F5FCFF'
         options={{
           tabBarIcon: (info) => <Ionicons name='ios-chatboxes' size={25} color={info.color}/>,

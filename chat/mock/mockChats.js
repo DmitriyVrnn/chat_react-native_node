@@ -27,7 +27,7 @@ export const mockChats = [
     id: 1,
     avatar: 'https://img2.chinadaily.com.cn/images/202001/13/5e1be3e6a310cf3e97b0bbbc.jpeg',
     name: 'Masha',
-    lastMessage: 'Hello world',
+    lastMessage: 'Здорова братан, че делаешь',
     timeLastMessage: Date.now(),
   },
 ];

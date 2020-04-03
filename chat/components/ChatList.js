@@ -1,13 +1,13 @@
 import React from 'react';
-import { Chat } from "../components/Chat";
+import { Chat } from "./Chat";
 import { View, FlatList, StyleSheet, Text } from "react-native";
 
 
-export const ChatList = ({ chats }) => {
+export const ChatList = ({ chats, openChat }) => {
   if (!chats.length) {
     return (
       <View style={styles.wrapper}>
-        <Text>У вас нет чатов</Text>
+        <Text>No chats</Text>
       </View>
     )
   }
@@ -18,7 +18,7 @@ export const ChatList = ({ chats }) => {
         data={chats}
         keyExtractor={chat => chat.id.toString()}
         renderItem={({ item }) => {
-          return <Chat item={item}/>
+          return <Chat item={item} openChat={openChat}/>
         }}/>
     </View>
   )
@@ -27,6 +27,6 @@ export const ChatList = ({ chats }) => {
 const styles = StyleSheet.create({
   wrapper: {
     paddingTop: 5,
-    flexDirection:'row'
+    flexDirection: 'row'
   },
 });

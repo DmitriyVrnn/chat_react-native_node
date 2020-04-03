@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, PixelRatio } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, PixelRatio, TouchableOpacity } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 
 
-export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) => {
+export const Chat = ({ item, openChat }) => {
+  const { lastMessage, avatar, name, timeLastMessage } = item;
   const { colors } = useTheme();
 
   const formatTimeLastMessage = new Date(timeLastMessage).toLocaleTimeString('en-GB', {
@@ -64,19 +65,21 @@ export const Chat = ({ item: { lastMessage, avatar, name, timeLastMessage } }) =
   });
 
   return (
-    <View style={styles.chatItem}>
-      <View style={styles.imageWrap}>
-        <ImageBackground style={styles.avatar} source={{ uri: avatar }}/>
-      </View>
-      <View style={styles.wrapInfo}>
-        <View style={styles.details}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.lastMessage}>{lastMessage}</Text>
+    <TouchableOpacity activeOpacity={0.7} onPress={() => openChat(item)}>
+      <View style={styles.chatItem}>
+        <View style={styles.imageWrap}>
+          <ImageBackground style={styles.avatar} source={{ uri: avatar }}/>
         </View>
-        <View style={styles.wrapTime}>
-          <Text style={styles.time}>{formatTimeLastMessage}</Text>
+        <View style={styles.wrapInfo}>
+          <View style={styles.details}>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.lastMessage}>{lastMessage}</Text>
+          </View>
+          <View style={styles.wrapTime}>
+            <Text style={styles.time}>{formatTimeLastMessage}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 };
