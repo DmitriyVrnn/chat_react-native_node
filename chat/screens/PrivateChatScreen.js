@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { DetailsSendMessage } from '../components/DeatailsSendMessage';
+import { Messages } from '../components/Messages';
 
 
 export const PrivateChatScreen = ({ navigation }) => {
@@ -12,10 +14,18 @@ export const PrivateChatScreen = ({ navigation }) => {
 
 
   return (
-    <View>
-      <Text>
-        Private chat
-      </Text>
+    <View style={styles.container}>
+      <Messages />
+      <DetailsSendMessage />
     </View>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  }
+});
