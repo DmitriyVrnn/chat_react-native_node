@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 
 
-export const DetailsSendMessage = () => (
+export const MessageInput = () => (
   <Input placeholder="Input message" style={styles.input} />
 );
 
