@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { SettingsScreen } from '../screens/SettingsScreen';
-import { StackChatsNavigator } from './stacks/StackChatsNavigation';
+import { StackChatsNavigator } from './stacks/StackHomeNavigation';
 
 
 const BottomNavigator = createBottomTabNavigator();
