@@ -1,5 +1,3 @@
 const initialState = {};
 
-export const chatReducer = (state = initialState, action) => {
-  return state;
-};
+export const chatReducer = (state = initialState, action) => state;
