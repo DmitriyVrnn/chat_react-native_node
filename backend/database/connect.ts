@@ -1,9 +1,9 @@
 import * as mongoose from 'mongoose';
-import {dbUrl} from "./config";
+import {DB_URL} from "./config";
 
 class Database {
     public mongoSetup(): void {
-        mongoose.connect(dbUrl, {
+        mongoose.connect(DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(() => console.log('DB Connected!'))
