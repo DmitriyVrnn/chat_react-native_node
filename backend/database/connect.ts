@@ -2,14 +2,17 @@ import * as mongoose from 'mongoose';
 import {dbUrl} from "./config";
 
 class Database {
-    public mongoSetup(): void {
-        mongoose.connect(dbUrl, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }).then(() => console.log('DB Connected!'))
-            .catch(err => {
-                console.log(`DB Connection Error: ${err.message}`);
+    public async mongoSetup(): Promise<void> {
+        try {
+           await mongoose.connect(dbUrl, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true
             });
+            await console.log('DB Connected!');
+        }
+        catch (err) {
+            console.log(`DB Connection Error: ${err.message}`)
+        }
     }
 }
 
