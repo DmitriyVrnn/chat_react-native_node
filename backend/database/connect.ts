@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 import {dbUrl} from "./config";
 
 class Database {
-    public async mongoSetup(): Promise<void> {
+    public async mongoConnect(): Promise<void> {
         try {
            await mongoose.connect(dbUrl, {
                 useNewUrlParser: true,
