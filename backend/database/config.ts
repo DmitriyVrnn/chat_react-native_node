@@ -1,3 +1,1 @@
-module.exports = {
-  dbUrl: 'mongodb://localhost:2707/chat'
-};
+export const dbUrl: string = 'mongodb://localhost/chat';

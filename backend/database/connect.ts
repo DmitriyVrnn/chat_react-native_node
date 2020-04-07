@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
-const config = require('./config');
+import * as mongoose from 'mongoose';
+import {dbUrl} from "./config";
 
 class Database {
-  constructor() {
-    mongoose.connect(config.dbUrl, { useNewUrlParser: true })
-  }
-
-  connect = () => {
-    const dbConnection = mongoose.connection;
-    dbConnection.on('error', err => console.log(`Connection error ${err}`));
-    dbConnection.once('open', () => console.log('Connected to DB'));
-  }
+    public mongoSetup(): void {
+        mongoose.connect(dbUrl, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }).then(() => console.log('DB Connected!'))
+            .catch(err => {
+                console.log(`DB Connection Error: ${err.message}`);
+            });
+    }
 }
 
-module.exports = Database;
+export const db = new Database();

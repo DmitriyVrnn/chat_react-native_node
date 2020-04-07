@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { apiRouter } from "./routes/apiRouter";
+import { db } from "../database/connect";
 
 class App {
 
@@ -14,7 +15,8 @@ class App {
     private config(): void {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended: false}));
-        this.app.use(apiRouter)
+        this.app.use(apiRouter);
+        db.mongoSetup();
     }
 
 }
