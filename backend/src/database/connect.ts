@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
 import {DB_URL} from "./config";
 
 class Database {

@@ -1,0 +1,1 @@
+export const DB_URL: string =  'mongodb://localhost/chat';

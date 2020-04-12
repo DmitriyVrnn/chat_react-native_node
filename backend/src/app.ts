@@ -1,7 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import { apiRouter } from "./routes/apiRouter";
-import { db } from "../database/connect";
+import { apiRouter } from "./routes/api.router";
+import { db } from "./database/connect";
 
 class App {
 
