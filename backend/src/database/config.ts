@@ -1,1 +1,1 @@
-export const DB_URL: string =  'mongodb://localhost/chat';
+export const DB_URL: string =  'mongodb://localhost:27017/chat';
