@@ -8,7 +8,7 @@ export const AppNavigation = () => {
   const [userToken, setUserToken] = useState(null);
   return (
     <NavigationContainer theme={defaultCustomTheme}>
-      {userToken === null ? <StackSignInNavigation /> : <AppBottomNavigation />}
+      {userToken !== null ? <StackSignInNavigation /> : <AppBottomNavigation />}
     </NavigationContainer>
   );
 };
