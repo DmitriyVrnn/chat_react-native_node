@@ -15,13 +15,12 @@ export class AuthenticationService {
 
     private createToken = (user: User): tokenData => {
         const expiresIn = 60 * 60;
-        const secret = 'secret_key';
-        const dataStoredInToken = {
+        const dataStoredInToken: DataStoredInToken = {
             _id: user._id,
         };
         return {
             expiresIn,
-            token: jwt.sign(dataStoredInToken, secret, {expiresIn}),
+            token: jwt.sign(dataStoredInToken, process.env.JWT_SECRET_KEY, {expiresIn}),
         };
     };
 

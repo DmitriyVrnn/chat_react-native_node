@@ -1,9 +1,10 @@
 import * as mongoose from 'mongoose';
-import {DB_URL} from "./config";
+import 'dotenv/config';
+
 
 class Database {
     public mongoSetup(): void {
-        mongoose.connect(DB_URL, {
+        mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(() => console.log('DB Connected!'))
