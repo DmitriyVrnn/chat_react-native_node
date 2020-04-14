@@ -24,9 +24,10 @@ export class AuthenticationController {
   public login = async (req: Request, res: Response, next: NextFunction) => {
     const loginData: LoginDataDto = req.body;
     try {
-      const { userFound: { username }, token } = await this.authenticationService.login(loginData);
-      res.setHeader('Set-Cookie', [token]);
-      res.send({ username });
+      const { userFound: { username, _id }, cookie } = await this.authenticationService.login(loginData);
+      console.log(cookie)
+      res.setHeader('Set-Cookie', [cookie]);
+      res.send({ _id, username });
     } catch (err) {
       next(err);
     }

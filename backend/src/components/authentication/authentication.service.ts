@@ -42,16 +42,16 @@ export class AuthenticationService {
   public login = async (loginData: LoginDataDto) => {
     const { username, password } = loginData;
     const userFound = await this.user.findOne({ username });
-    console.log(userFound);
-    const token = await this.comparePassword(userFound, password);
-    return { userFound, token };
+    const tokenData = await this.createToken(userFound);
+    const cookie = await this.comparePassword(password, userFound, tokenData);
+    return { userFound, cookie };
   }
 
-  private comparePassword = async (user, password): Promise<any> => {
+  private comparePassword = async (enteredPassword: string, userFound: User, tokenData: TokenData) => {
     const isPasswordMatching = await bcrypt.compare(
-            password,
-            user.get('password', null, { getters: false }),
+        enteredPassword,
+        userFound.get('password', null, { getters: false }),
         );
-    if (isPasswordMatching) this.createToken(user);
+    if (isPasswordMatching) return this.createCookie(tokenData);
   }
 }
