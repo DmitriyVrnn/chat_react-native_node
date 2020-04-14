@@ -1,12 +1,12 @@
 // @ts-ignore
 import { IsString } from 'class-validator';
 
-class CreateUserDto{
-    @IsString()
+class LoginDataDto{
+  @IsString()
     username: string;
 
-    @IsString()
+  @IsString()
     password: string;
 }
 
-export default CreateUserDto;
+export default LoginDataDto;

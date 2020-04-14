@@ -5,6 +5,6 @@ export const configEnv = () =>  {
   cleanEnv(process.env, {
     MONGO_URL: str(),
     PORT: port(),
-    JWT_SECRET_KEY: str()
+    JWT_SECRET_KEY: str(),
   });
 };
