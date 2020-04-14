@@ -40,18 +40,20 @@ export class AuthenticationService {
   }
 
   public login = async (loginData: LoginDataDto) => {
-    const { username, password } = loginData;
+    const { username, password  } = loginData;
     const userFound = await this.user.findOne({ username });
     const tokenData = await this.createToken(userFound);
-    const cookie = await this.comparePassword(password, userFound, tokenData);
-    return { userFound, cookie };
+    const isMatchPassword = await this.comparePassword(password, userFound);
+    if (isMatchPassword) {
+      const cookie = this.createCookie(tokenData);
+      return { userFound, cookie };
+    }
   }
 
-  private comparePassword = async (enteredPassword: string, userFound: User, tokenData: TokenData) => {
-    const isPasswordMatching = await bcrypt.compare(
+  private comparePassword = async (enteredPassword: string, userFound: User): Promise<boolean> => {
+    return await bcrypt.compare(
         enteredPassword,
         userFound.get('password', null, { getters: false }),
-        );
-    if (isPasswordMatching) return this.createCookie(tokenData);
+    );
   }
 }
