@@ -25,7 +25,6 @@ export class AuthenticationController {
     const loginData: LoginDataDto = req.body;
     try {
       const { userFound: { username, _id }, cookie } = await this.authenticationService.login(loginData);
-      console.log(cookie)
       res.setHeader('Set-Cookie', [cookie]);
       res.send({ _id, username });
     } catch (err) {
