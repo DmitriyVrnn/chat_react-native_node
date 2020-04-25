@@ -24,9 +24,15 @@ export class AuthenticationController {
   public login = async (req: Request, res: Response, next: NextFunction) => {
     const loginData: LoginDataDto = req.body;
     try {
-      const { userFound: { username, _id }, cookie } = await this.authenticationService.login(loginData);
-      res.setHeader('Set-Cookie', [cookie]);
-      res.send({ _id, username });
+      const { username, id , cookie, error } = await this.authenticationService.login(loginData);
+      if (id) {
+        res.setHeader('Set-Cookie', [cookie]);
+        res.status(200)
+                    .send({ id, username });
+      }
+      if (error) {
+        res.status(404).send({ error });
+      }
     } catch (err) {
       next(err);
     }

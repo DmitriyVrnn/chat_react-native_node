@@ -6,6 +6,7 @@ import {
 } from '../types';
 import { Http } from '../../utils/http';
 
+
 const signInRequest = () => ({
   type: SIGN_IN_REQUEST,
   payload: {
@@ -38,6 +39,7 @@ export const signIn = (username, password) => async (dispatch) => {
     //   dispatch(signInSuccess(data));
     // }
   } catch (e) {
+    console.log('err', e)
     dispatch(signInFail(e));
   }
 };
