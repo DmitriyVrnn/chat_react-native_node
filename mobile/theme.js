@@ -22,4 +22,5 @@ export const defaultCustomTheme = {
 export const COLORS = {
   MAIN_COLOR: '#423e68',
   SECOND_COLOR: '#f84a88',
+  YELLOW_COLOR: '#efb728',
 };
