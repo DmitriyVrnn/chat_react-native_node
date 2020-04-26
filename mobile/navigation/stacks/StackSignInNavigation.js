@@ -11,13 +11,17 @@ export const StackSignInNavigation = () => (
       name="SignIn"
       component={SignInScreen}
       options={{
-        title: 'Sign In',
+        title: 'LOGIN',
         headerStyle: {
           backgroundColor: COLORS.SECOND_COLOR,
         },
         headerTintColor: '#000',
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: '700',
+          fontFamily: 'noto-sans-black',
+          fontSize: 20,
+          letterSpacing: 0.6,
+          color: COLORS.MAIN_COLOR,
         },
       }}
     />

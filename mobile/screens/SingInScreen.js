@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import {
-  View, TextInput, Button, StyleSheet
+  View, TextInput, StyleSheet
 } from 'react-native';
+import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import { signIn } from '../store/actions/user';
-import { COLORS } from '../theme';
 import { SvgFigure } from '../components/UI/SvgFigure';
+
+import { COLORS } from '../theme';
 
 
 export const SignInScreen = () => {
@@ -38,7 +42,26 @@ export const SignInScreen = () => {
             onChangeText={setPassword}
           />
         </View>
-        <Button title="Enter" onPress={handleLogin} />
+        <View style={styles.buttonWrap}>
+          <Button
+            icon={(
+              <Icon
+                name="arrow-right"
+                size={15}
+                color="white"
+              />
+            )}
+            buttonStyle={styles.button}
+            onPress={handleLogin}
+            titleStyle={{
+              color: 'white',
+              marginLeft: 5,
+              fontSize: 16,
+              fontFamily: 'roboto-regular'
+            }}
+            title="Enter"
+          />
+        </View>
       </View>
     </View>
   );
@@ -53,8 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   inputWrap: {
-    width: '80%',
     backgroundColor: '#465881',
+    width: '80%',
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
@@ -78,11 +101,20 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   input: {
+    width: '80%',
     height: 50,
-    width: '100%',
     textAlign: 'center',
     color: 'white',
-    fontSize: 20,
+    fontSize: 16,
+    fontFamily: 'roboto-regular'
   },
-  figure: {}
+  buttonWrap: {
+    marginTop: 20,
+    width: '80%',
+  },
+  button: {
+    backgroundColor: COLORS.SECOND_COLOR,
+    padding: 10,
+    borderRadius: 25,
+  }
 });
