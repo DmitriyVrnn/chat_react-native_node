@@ -18,3 +18,8 @@ export const defaultCustomTheme = {
     text: '#000',
   }
 };
+
+export const COLORS = {
+  MAIN_COLOR: '#423e68',
+  SECOND_COLOR: '#efb728',
+};
