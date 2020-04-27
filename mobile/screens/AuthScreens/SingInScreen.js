@@ -60,8 +60,9 @@ export const SignInScreen = ({ navigation }) => {
             titleStyle={{
               color: 'white',
               marginLeft: 5,
-              fontSize: 16,
-              fontFamily: 'roboto-regular'
+              fontSize: 18,
+              letterSpacing: 0.8,
+              fontFamily: 'roboto-bold'
             }}
             title="Enter"
           />
