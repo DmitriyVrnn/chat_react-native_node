@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { signIn } from '../../store/actions/user';
-import { SvgWave } from '../../components/UI/SvgWave';
+import SvgWave from '../../components/UI/SvgWave';
 
 import { styles } from './styles';
 
@@ -28,7 +28,7 @@ export const SignInScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <SvgWave />
+      <SvgWave.WaveRight />
       <View style={styles.form}>
         <View style={styles.inputWrap}>
           <TextInput

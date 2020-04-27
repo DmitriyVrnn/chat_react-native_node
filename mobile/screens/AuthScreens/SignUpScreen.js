@@ -5,7 +5,7 @@ import {
 import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 
-import { SvgWave } from '../../components/UI/SvgWave';
+import SvgWave from '../../components/UI/SvgWave';
 import { styles } from './styles';
 
 
@@ -19,7 +19,7 @@ export const SignUpScreen = () => {
 
   return (
     <View style={styles.container}>
-      <SvgWave />
+      <SvgWave.WaveLeft />
       <View style={styles.form}>
         <View style={styles.inputWrap}>
           <TextInput

@@ -2,7 +2,18 @@ import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import { COLORS } from '../../theme';
 
-export const SvgWave = () => (
+
+const WaveLeft = () => (
+  <Svg>
+    <Path
+      fill={COLORS.SECOND_COLOR}
+      fillOpacity="1"
+      d="M0,192L48,186.7C96,181,192,171,288,138.7C384,107,480,53,576,64C672,75,768,149,864,154.7C960,160,1056,96,1152,74.7C1248,53,1344,75,1392,85.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+    />
+  </Svg>
+);
+
+const WaveRight = () => (
   <Svg>
     <Path
       fill={COLORS.SECOND_COLOR}
@@ -11,3 +22,10 @@ export const SvgWave = () => (
     />
   </Svg>
 );
+
+const SvgWave = {
+  WaveLeft,
+  WaveRight
+};
+
+export default SvgWave;
