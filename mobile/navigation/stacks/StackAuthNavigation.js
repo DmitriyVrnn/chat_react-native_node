@@ -12,7 +12,7 @@ export const StackAuthNavigation = () => (
       name="SignIn"
       component={SignInScreen}
       options={{
-        title: 'LOGIN',
+        title: 'Login',
         headerStyle: {
           backgroundColor: COLORS.SECOND_COLOR,
         },
@@ -30,7 +30,7 @@ export const StackAuthNavigation = () => (
       name="SignUp"
       component={SignUpScreen}
       options={{
-        title: 'SIGN UP',
+        title: 'Sign up',
         headerStyle: {
           backgroundColor: COLORS.SECOND_COLOR,
         },
