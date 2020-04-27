@@ -30,10 +30,10 @@ const signInFail = (error) => ({
   }
 });
 
-export const signIn = (username, password) => async (dispatch) => {
+export const signIn = (email, password) => async (dispatch) => {
   dispatch(signInRequest());
   try {
-    const data = await Http.post('http://localhost:8000/auth/login', { username, password });
+    const data = await Http.post('http://localhost:8000/auth/login', { email, password });
     console.log(data);
     // if (_id) {
     //   dispatch(signInSuccess(data));

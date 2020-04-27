@@ -42,8 +42,8 @@ export class AuthenticationService {
 
   public login = async (loginData: LoginDataDto) => {
     const error = new Errors();
-    const { username, password  } = loginData;
-    const userFound = await this.user.findOne({ username });
+    const { email, password  } = loginData;
+    const userFound = await this.user.findOne({ email });
     const tokenData = await this.createToken(userFound);
     const isMatchPassword = await this.comparePassword(password, userFound);
     if (isMatchPassword) {
@@ -51,7 +51,7 @@ export class AuthenticationService {
       return {
         cookie,
         id: userFound._id,
-        username: userFound.username,
+        email: userFound.email,
       };
     }
     return { error: error.getIncorrectPasswordOrPhoneNumberMessage() };

@@ -1,9 +1,9 @@
 // @ts-ignore
 import { IsString } from 'class-validator';
 
-class LoginDataDto{
+class LoginDataDto {
   @IsString()
-    username: string;
+    email: string;
 
   @IsString()
     password: string;

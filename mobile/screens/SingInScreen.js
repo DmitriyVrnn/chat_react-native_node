@@ -13,13 +13,13 @@ import { COLORS } from '../theme';
 
 
 export const SignInScreen = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    dispatch(signIn(username, password));
+    dispatch(signIn(email, password));
   };
 
   return (
@@ -29,8 +29,8 @@ export const SignInScreen = () => {
         <View style={styles.inputWrap}>
           <TextInput
             style={styles.input}
-            placeholder="Input name"
-            onChangeText={setUsername}
+            placeholder="Input email"
+            onChangeText={setEmail}
             placeholderTextColor="#fff"
           />
         </View>

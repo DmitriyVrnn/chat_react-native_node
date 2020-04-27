@@ -1,5 +1,5 @@
 class Errors {
-  getIncorrectPasswordOrPhoneNumberMessage = (): string => 'Incorrect password or number';
+  getIncorrectPasswordOrPhoneNumberMessage = (): string => 'Incorrect password or email';
 
 }
 

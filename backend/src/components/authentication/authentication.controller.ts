@@ -24,11 +24,11 @@ export class AuthenticationController {
   public login = async (req: Request, res: Response, next: NextFunction) => {
     const loginData: LoginDataDto = req.body;
     try {
-      const { username, id , cookie, error } = await this.authenticationService.login(loginData);
+      const { email, id , cookie, error } = await this.authenticationService.login(loginData);
       if (id) {
         res.setHeader('Set-Cookie', [cookie]);
         res.status(200)
-                    .send({ id, username });
+                    .send({ id, email });
       }
       if (error) {
         res.status(404).send({ error });
