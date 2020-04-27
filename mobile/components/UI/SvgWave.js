@@ -2,7 +2,7 @@ import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import { COLORS } from '../../theme';
 
-export const SvgFigure = () => (
+export const SvgWave = () => (
   <Svg>
     <Path
       fill={COLORS.SECOND_COLOR}

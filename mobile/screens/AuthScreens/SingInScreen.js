@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import {
-  View, TextInput, StyleSheet
+  View, TextInput, Text
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { signIn } from '../store/actions/user';
-import { SvgFigure } from '../components/UI/SvgFigure';
+import { signIn } from '../../store/actions/user';
+import { SvgWave } from '../../components/UI/SvgWave';
 
-import { COLORS } from '../theme';
+import { styles } from './styles';
 
 
-export const SignInScreen = () => {
+export const SignInScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,23 +22,27 @@ export const SignInScreen = () => {
     dispatch(signIn(email, password));
   };
 
+  const goToSignUpScreen = () => {
+    navigation.push('SignUp');
+  };
+
   return (
     <View style={styles.container}>
-      <SvgFigure />
+      <SvgWave />
       <View style={styles.form}>
         <View style={styles.inputWrap}>
           <TextInput
             style={styles.input}
             placeholder="Input email"
             onChangeText={setEmail}
-            placeholderTextColor="#fff"
+            placeholderTextColor="#f5f5f5"
           />
         </View>
         <View style={styles.inputWrap}>
           <TextInput
             style={styles.input}
             placeholder="Input password"
-            placeholderTextColor="#fff"
+            placeholderTextColor="#f5f5f5"
             onChangeText={setPassword}
           />
         </View>
@@ -62,59 +66,12 @@ export const SignInScreen = () => {
             title="Enter"
           />
         </View>
+        <Text style={styles.text}>
+          If you don't have an account, then
+          {' '}
+          <Text style={styles.textGoToSignUp} onPress={goToSignUpScreen}>register</Text>
+        </Text>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    width: '100%',
-    backgroundColor: COLORS.MAIN_COLOR,
-    justifyContent: 'center',
-  },
-  inputWrap: {
-    backgroundColor: '#465881',
-    width: '80%',
-    borderRadius: 25,
-    height: 50,
-    marginBottom: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.20,
-    shadowRadius: 1.41,
-
-    elevation: 2,
-  },
-  form: {
-    width: '100%',
-    position: 'absolute',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  input: {
-    width: '80%',
-    height: 50,
-    textAlign: 'center',
-    color: 'white',
-    fontSize: 16,
-    fontFamily: 'roboto-regular'
-  },
-  buttonWrap: {
-    marginTop: 20,
-    width: '80%',
-  },
-  button: {
-    backgroundColor: COLORS.SECOND_COLOR,
-    padding: 10,
-    borderRadius: 25,
-  }
-});
