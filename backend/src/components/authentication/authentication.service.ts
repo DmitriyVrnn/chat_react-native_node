@@ -6,7 +6,7 @@ import { TokenData } from './interfaces/token.interface';
 import User from '../user/user.interface';
 import { DataStoredInToken } from './interfaces/dataStoredInToken.interface';
 import LoginDataDto from './loginData.dto';
-import Errors from '../../exceptions/errors';
+import Error from '../../exceptions/errors';
 
 export class AuthenticationService {
   private user = userModel;
@@ -41,20 +41,26 @@ export class AuthenticationService {
   }
 
   public login = async (loginData: LoginDataDto) => {
-    const error = new Errors();
     const { email, password  } = loginData;
-    const userFound = await this.user.findOne({ email });
-    const tokenData = await this.createToken(userFound);
-    const isMatchPassword = await this.comparePassword(password, userFound);
-    if (isMatchPassword) {
-      const cookie = this.createCookie(tokenData);
-      return {
-        cookie,
-        id: userFound._id,
-        email: userFound.email,
-      };
+    try {
+      const userFound = await this.user.findOne({ email });
+      const tokenData = await this.createToken(userFound);
+      return this.getUserData(await this.comparePassword(password, userFound), userFound, tokenData);
+    } catch (e) {
+      return { error: new Error('Password or email invalid') };
     }
-    return { error: error.getIncorrectPasswordOrPhoneNumberMessage() };
+  };
+
+  private getUserData = (isPasswordMatch: boolean, user: User, token: TokenData) => {
+    if (!isPasswordMatch) {
+      return { error: new Error('Password invalid') };
+    }
+    const cookie = this.createCookie(token);
+    return {
+      cookie,
+      id: user._id,
+      email: user.email,
+    };
   }
 
   private comparePassword = async (enteredPassword: string, userFound: User): Promise<boolean> => {
