@@ -9,38 +9,27 @@ import { Http } from '../../utils/http';
 
 const signInRequest = () => ({
   type: SIGN_IN_REQUEST,
-  payload: {
-    loading: true
-  }
 });
 
-const signInSuccess = (name) => ({
+const signInSuccess = (id, email) => ({
   type: SIGN_IN_SUCCESS,
-  payload: {
-    name,
-    loading: false
-  }
+  id,
+  email,
 });
 
 const signInFail = (error) => ({
   type: SIGN_IN_FAIL,
-  payload: {
-    error,
-    loading: false,
-  }
+  error,
 });
 
 export const signIn = (email, password) => async (dispatch) => {
   dispatch(signInRequest());
   try {
-    const data = await Http.post('http://localhost:8000/auth/login', { email, password });
-    console.log(data);
-    // if (_id) {
-    //   dispatch(signInSuccess(data));
-    // }
+    const result = await Http.post('http://localhost:8000/auth/login', { email, password });
+    if (result.id) { dispatch(signInSuccess(result.id, result.email)); }
+    if (result.error) { dispatch(signInFail(result.error.message)); }
   } catch (e) {
-    console.log('err', e)
-    dispatch(signInFail(e));
+    dispatch(signInFail());
   }
 };
 

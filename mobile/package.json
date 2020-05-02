@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint *.js **/*.js",
-    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001'"
+    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001' && expo start",
+    "postinstall": "rndebugger-open"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
@@ -22,6 +23,7 @@
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
+    "react-native-debugger-open": "^0.3.24",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-paper": "^3.8.0",
@@ -34,6 +36,7 @@
     "react-native-web": "~0.11.7",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {

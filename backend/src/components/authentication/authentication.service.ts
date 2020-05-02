@@ -49,7 +49,7 @@ export class AuthenticationService {
     } catch (e) {
       return { error: new Error('Password or email invalid') };
     }
-  };
+  }
 
   private getUserData = (isPasswordMatch: boolean, user: User, token: TokenData) => {
     if (!isPasswordMatch) {

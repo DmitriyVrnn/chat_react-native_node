@@ -6,7 +6,7 @@ import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { signIn } from '../../store/actions/user';
+import { signIn } from '../../store/actions/user.action';
 import SvgWave from '../../components/UI/SvgWave';
 
 import { styles } from './styles';
