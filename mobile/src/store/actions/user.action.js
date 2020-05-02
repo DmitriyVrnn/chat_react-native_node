@@ -25,18 +25,17 @@ const signInFail = (error) => ({
 export const signIn = (email, password) => async (dispatch) => {
   dispatch(signInRequest());
   try {
-    const result = await Http.post('http://localhost:8000/auth/login', { email, password });
+    const result = await Http.post('/auth/login', { email, password });
     if (result.id) { dispatch(signInSuccess(result.id, result.email)); }
     if (result.error) { dispatch(signInFail(result.error.message)); }
   } catch (e) {
-    dispatch(signInFail());
+    dispatch(signInFail('Something went wrong...'));
   }
 };
 
 export const signUp = (username) => async (dispatch) => {
   try {
-    const data = await fetch('http://localhost:8000/auth/signup', { method: 'POST', body: username });
-    console.log(data);
+    const data = await fetch('/auth/signup', { method: 'POST', body: username });
   } catch (e) {
     console.log(e);
   }

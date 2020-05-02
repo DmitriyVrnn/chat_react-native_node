@@ -1,3 +1,5 @@
+import { appConfig } from '../../config';
+
 
 export class Http {
   static HEADERS = { 'Content-Type': 'application/json' };
@@ -14,7 +16,6 @@ export class Http {
     try {
       return await request(url, 'POST', data);
     } catch (e) {
-      console.log(e);
       throw (e);
     }
   }
@@ -45,7 +46,6 @@ async function request(url, method = 'GET', data) {
   if (method === 'POST' || method === 'PATCH') {
     config.body = JSON.stringify(data);
   }
-
-  const response = await fetch(url, config);
+  const response = await fetch(`${appConfig.REACT_APP_BACKEND_URL}${url}`, config);
   return await response.json();
 }

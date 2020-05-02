@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { AppLoading } from 'expo';
-import store from './store';
+import store from './src/store';
 import { bootstrap } from './bootstrap';
 
-import { AppNavigation } from './navigation/AppNavigation';
+
+import { AppNavigation } from './src/navigation/AppNavigation';
 
 
 export default function App() {
