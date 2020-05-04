@@ -1,8 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { SettingsScreen } from '../screens/SettingsScreen';
-import { StackChatsNavigator } from './stacks/StackHomeNavigation';
+import { StackChatsNavigator } from './stacks/StackChatsNavigation';
+import { StackContactNavigator } from './stacks/StackContactNavigation';
+import { StackSettingsNavigator } from './stacks/StackSettingsNavigation';
 
 
 const BottomNavigator = createBottomTabNavigator();
@@ -15,6 +16,14 @@ export const AppBottomNavigation = () => (
     }}
   >
     <BottomNavigator.Screen
+      name="Contacts"
+      component={StackContactNavigator}
+      options={{
+        tabBarIcon: (info) => <Ionicons name="ios-settings" size={25} color={info.color} />,
+        tabBarLabel: 'Contacts'
+      }}
+    />
+    <BottomNavigator.Screen
       name="Chat"
       component={StackChatsNavigator}
       tintColor="#F5FCFF"
@@ -25,7 +34,7 @@ export const AppBottomNavigation = () => (
     />
     <BottomNavigator.Screen
       name="Settings"
-      component={SettingsScreen}
+      component={StackSettingsNavigator}
       options={{
         tabBarIcon: (info) => <Ionicons name="ios-settings" size={25} color={info.color} />,
         tabBarLabel: 'Settings'

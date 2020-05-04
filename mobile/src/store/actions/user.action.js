@@ -5,6 +5,7 @@ import {
   SIGN_UP_REQUEST
 } from '../types';
 import { Http } from '../../utils/http';
+import { mockAuth } from '../../mock/mockAuth';
 
 
 const signInRequest = () => ({
@@ -25,7 +26,8 @@ const signInFail = (error) => ({
 export const signIn = (email, password) => async (dispatch) => {
   dispatch(signInRequest());
   try {
-    const result = await Http.post('/auth/login', { email, password });
+    // TODO: Заменить моки
+    const result = await Http.post('/auth/login', { email: mockAuth.email, password: mockAuth.password });
     if (result.id) { dispatch(signInSuccess(result.id, result.email)); }
     if (result.error) { dispatch(signInFail(result.error.message)); }
   } catch (e) {
