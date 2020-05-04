@@ -9,7 +9,7 @@ export const StackContactNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Chats"
+        name="Contacts"
         component={ContactScreen}
         options={{ title: 'Contacts' }}
       />
