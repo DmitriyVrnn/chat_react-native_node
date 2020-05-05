@@ -47,8 +47,23 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     width: '80%',
   },
-  button: {
+  buttonActive: {
     backgroundColor: COLORS.SECOND_COLOR,
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 25,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
+
+    elevation: 2,
+  },
+  buttonInactive: {
+    backgroundColor: 'transparent',
     padding: 10,
     borderRadius: 25,
     shadowColor: '#000',

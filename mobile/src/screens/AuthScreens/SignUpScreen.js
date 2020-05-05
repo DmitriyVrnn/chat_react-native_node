@@ -9,13 +9,15 @@ import SvgWave from '../../components/UI/SvgWave';
 import { styles } from './styles';
 
 
-export const SignUpScreen = () => {
+export const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [resetPassword, setResetPassword] = useState('');
   const dispatch = useDispatch();
 
   const handleSignUp = () => {};
+
+  const goToSignInScreen = () => navigation.goBack();
 
   return (
     <View style={styles.container}>
@@ -47,7 +49,7 @@ export const SignUpScreen = () => {
         </View>
         <View style={styles.buttonWrap}>
           <Button
-            buttonStyle={styles.button}
+            buttonStyle={styles.buttonActive}
             onPress={handleSignUp}
             titleStyle={{
               color: 'white',
@@ -56,7 +58,19 @@ export const SignUpScreen = () => {
               letterSpacing: 0.8,
               fontFamily: 'roboto-bold'
             }}
-            title="Registration"
+            title="Sign Up"
+          />
+          <Button
+            onPress={goToSignInScreen}
+            buttonStyle={styles.buttonInactive}
+            titleStyle={{
+              color: 'white',
+              marginLeft: 5,
+              fontSize: 18,
+              letterSpacing: 0.8,
+              fontFamily: 'roboto-bold'
+            }}
+            title="Sign In"
           />
         </View>
       </View>

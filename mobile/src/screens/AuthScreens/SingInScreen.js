@@ -48,14 +48,14 @@ export const SignInScreen = ({ navigation }) => {
         </View>
         <View style={styles.buttonWrap}>
           <Button
-            icon={(
-              <Icon
-                name="arrow-right"
-                size={15}
-                color="white"
-              />
-            )}
-            buttonStyle={styles.button}
+            // icon={(
+            //   <Icon
+            //     name="arrow-right"
+            //     size={15}
+            //     color="white"
+            //   />
+            // )}
+            buttonStyle={styles.buttonActive}
             onPress={handleLogin}
             titleStyle={{
               color: 'white',
@@ -64,14 +64,21 @@ export const SignInScreen = ({ navigation }) => {
               letterSpacing: 0.8,
               fontFamily: 'roboto-bold'
             }}
-            title="Enter"
+            title="Sign In"
+          />
+          <Button
+            onPress={goToSignUpScreen}
+            buttonStyle={styles.buttonInactive}
+            titleStyle={{
+              color: 'white',
+              marginLeft: 5,
+              fontSize: 18,
+              letterSpacing: 0.8,
+              fontFamily: 'roboto-bold'
+            }}
+            title="Sign Up"
           />
         </View>
-        <Text style={styles.text}>
-          If you don't have an account, then
-          {' '}
-          <Text style={styles.textGoToSignUp} onPress={goToSignUpScreen}>register</Text>
-        </Text>
       </View>
     </View>
   );
