@@ -1,17 +1,22 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ContactScreen } from '../../screens/ContactScreen';
+import { screenOptions } from './screenOptions';
 
 const Stack = createStackNavigator();
 
 export const StackContactNavigator = ({ navigation }) => {
   navigation.setOptions({ tabBarVisible: true });
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={screenOptions}
+    >
       <Stack.Screen
         name="Contacts"
         component={ContactScreen}
-        options={{ title: 'Contacts' }}
+        options={{
+          title: 'Contacts',
+        }}
       />
     </Stack.Navigator>
   );

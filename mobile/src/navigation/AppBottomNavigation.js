@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { StackChatsNavigator } from './stacks/StackChatsNavigation';
 import { StackContactNavigator } from './stacks/StackContactNavigation';
 import { StackSettingsNavigator } from './stacks/StackSettingsNavigation';
+import { COLORS } from '../theme';
 
 
 const BottomNavigator = createBottomTabNavigator();
@@ -11,8 +12,10 @@ const BottomNavigator = createBottomTabNavigator();
 export const AppBottomNavigation = () => (
   <BottomNavigator.Navigator
     tabBarOptions={{
-      inactiveTintColor: 'gray',
+      inactiveTintColor: COLORS.INACTIVE_TAB_BAR_COLOR,
+      activeTintColor: COLORS.YELLOW_COLOR,
       shifting: true,
+      style: { backgroundColor: COLORS.DARKEN_MAIN_COLOR },
     }}
   >
     <BottomNavigator.Screen

@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { ChatScreen } from '../../screens/ChatsScreen';
 import { PrivateChatScreen } from '../../screens/PrivateChatScreen';
 import { AvatarApp } from '../../components/UI/Avatar';
+import { screenOptions } from './screenOptions';
 
 
 const Stack = createStackNavigator();
@@ -10,7 +11,9 @@ const Stack = createStackNavigator();
 export const StackChatsNavigator = ({ navigation }) => {
   navigation.setOptions({ tabBarVisible: true });
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={screenOptions}
+    >
       <Stack.Screen
         name="Chats"
         component={ChatScreen}
@@ -25,10 +28,10 @@ export const StackChatsNavigator = ({ navigation }) => {
             fontWeight: 'bold',
           },
           headerRight: () => (
-            <AvatarApp uri={route.params.avatar} size="MT" style={{ marginRight: 5 }}/>
+            <AvatarApp uri={route.params.avatar} size="MT" style={{ marginRight: 5 }} />
           ),
         })}
       />
     </Stack.Navigator>
   );
-}
+};

@@ -48,7 +48,7 @@ export const Chat = ({ item, openChat }) => {
       marginRight: 10
     },
     name: {
-      color: colors.text,
+      color: 'white',
       marginTop: 6,
       fontSize: 18,
       marginBottom: 5,
@@ -59,7 +59,7 @@ export const Chat = ({ item, openChat }) => {
       fontFamily: 'roboto-bold',
     },
     time: {
-      color: colors.text,
+      color: 'white',
       fontFamily: 'roboto-bold',
     },
   });
